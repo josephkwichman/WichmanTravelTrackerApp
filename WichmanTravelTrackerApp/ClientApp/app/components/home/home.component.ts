@@ -21,12 +21,13 @@ export class HomeComponent {
         this.baseUrl = baseUrl;
     }
 
-    addLocation(inputLoc: HTMLInputElement, visit: boolean) {
+    addLocation(inputLoc: HTMLInputElement, inputVisit: HTMLInputElement) {
         let newId = this.locations.length + 1;
-        let newLocation = { id: newId, location: inputLoc.value, visited: visit };
+        let newLocation = { id: newId, location: inputLoc.value, visited: inputVisit.checked };
         this.createLocation(newLocation as Location);
         this.locations.push(newLocation as Location);
         inputLoc.value = ' ';
+        inputVisit.checked = false;
     }
 
     createLocation(location: Location) {
