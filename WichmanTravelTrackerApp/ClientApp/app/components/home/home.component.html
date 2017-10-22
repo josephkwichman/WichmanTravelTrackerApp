@@ -1,0 +1,40 @@
+<h1>Wichman Travel Locations Tracker</h1>
+
+<p>This Application helps you keep track of your travels.</p>
+
+<p *ngIf="!locations"><em>Loading...</em></p>
+
+<table class='table' *ngIf="locations">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Visited?</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let location of locations">
+            <td>{{ location.location }}</td>
+            <td>{{ location.visited }}</td>
+            <td><button (click)="switchVisited(location.id)">Toggle Visited</button></td>
+
+        </tr>
+        <tr>
+            <td>
+                <label>Add New Location: </label>
+                <input #newLocation placeholder="Location" newLocation.value=' ' />
+            </td>
+        <tr>
+            <td>
+                <label>Visited: </label>
+                <input #wasVisited type="checkbox" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="addLocation(newLocation, wasVisited.checked)" style="font-weight: bold">Submit</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
