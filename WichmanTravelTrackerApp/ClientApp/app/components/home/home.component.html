@@ -15,8 +15,8 @@
     <tbody>
         <tr *ngFor="let location of locations">
             <td>{{ location.location }}</td>
-            <td>{{ location.visited }}</td>
-            <td><button (click)="switchVisited(location.id)">Toggle Visited</button></td>
+            <td style="font-weight: bold">{{ location.visited ? 'Yes' : 'No' }}</td>
+            <td><button (click)="switchVisited(location.id)" style="font-weight: bold">Toggle Visited</button></td>
 
         </tr>
         <tr>
